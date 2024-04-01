@@ -1,0 +1,34 @@
+<!-- index.html -->
+
+{% extends 'base.html' %}
+
+{% block title %}Twitter{% endblock %}
+
+{% block contents %}
+
+{% include 'app_title.html' %}
+
+
+
+
+  <!-- 既存のスレッド一覧を表示する部分（app_list.html に相当） -->
+  <div style="text-align: center;"><h2>ツイート一覧</h2>
+
+  <div style="text-align: center;">
+  {% for record in object_list %}
+  <h4>
+    <a href="threads/{{record.id}}">{{ record.title }}</a>
+  </h4>
+    <!-- ここで include する位置が修正されました -->
+
+  {% endfor %}
+  {% include 'pagenation.html' %}
+
+  {% if user.is_authenticated %}
+    <!-- 投稿フォーム -->
+    {% include 'toukou.html' %}
+  {% endif %}
+  </div>
+
+
+{% endblock %}

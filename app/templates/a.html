@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ thread }}{% endblock %}
+
+{% block contents%}
+<div style="text-align: center;">
+    {% include 'app_title.html' %}
+    <h1 style="color: red; margin-bottom: 30px;">{{ thread }}</h1>
+    <hr>
+    {% for post in posts %}
+
+    <h2 style="margin-bottom: 30px;">
+        {{ post.comment }}
+        <hr>
+    </h2>
+
+
+    
+    {% endfor %}
+    {% include 'kome.html' %}
+</div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% if user.is_authenticated %}
+<form action="/threads/{{thread.id}}/comment/" method="post">
+    {% csrf_token %}
+<p>ユーザー名</p>
+<p><input type="text" name="come_name" size="25" value="{{ user.username }}" autocomplete="name" readonly></p>
+
+<p>E-mail</p>
+<p><input type="text" name="come_email" size="25" value="{{ user.email }}" autocomplete="email" readonly></p>
+
+<p>コメント:</p>
+<p><textarea name="comment" cols="40" rows="2"></textarea></p>
+
+<p><input type="submit" value="コメントを投稿"></p>
+</form>
+{% endif %}
